@@ -1,9 +1,10 @@
+import logging
 import re
 from dataclasses import dataclass
 from pathlib import Path
 from typing import List
 
-from aoc_2025.utils import simple_txt_parser
+from aoc_2025.utils import setup_logger, simple_txt_parser
 
 ACTION_PATTERN = re.compile(r"^(?P<dir>[RL])(?P<amt>\d+)$", re.IGNORECASE)
 
@@ -27,7 +28,7 @@ class Safe:
     sign = 1 if rotation_delta > 0 else -1
     abs_rotation = abs(rotation_delta)
     start_pos = self.current_position
-    first_crossing = ((-start_pos * sign) % 100)
+    first_crossing = (-start_pos * sign) % 100
     if abs_rotation <= 1:
       during_crossings = 0
     else:
@@ -42,9 +43,9 @@ class Safe:
     new_position = (self.current_position + rotation_delta) % 100
     if new_position == 0:
       self.zeros_at_end += 1
-    print(
-        f"{action} | {self.current_position} {rotation_delta} -> {new_position} | "
-        f"during: {during_crossings}, total during: {self.zeros_during}"
+    logging.debug(
+      f"{action} | {self.current_position} {rotation_delta} -> {new_position} | "
+      f"during: {during_crossings}, total during: {self.zeros_during}"
     )
     self.current_position = new_position
 
@@ -54,12 +55,13 @@ class Safe:
 
 
 def main(filename: str = "example.txt") -> None:
+  setup_logger()
   lines = simple_txt_parser(Path(__file__).parent / filename)
   safe = Safe()
   safe.apply_all_rotations(lines)
-  print(safe)
-  print(f"P1: {safe.zeros_at_end}")
-  print(f"P2: {safe.zeros_at_end + safe.zeros_during}")
+  logging.info(safe)
+  logging.info(f"P1: {safe.zeros_at_end}")
+  logging.info(f"P2: {safe.zeros_at_end + safe.zeros_during}")
 
 
 if __name__ == "__main__":
