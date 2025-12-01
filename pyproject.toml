@@ -1,0 +1,22 @@
+[project]
+name = "aoc-2025"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Fabrício", email = "fab.brito94@gmail.com" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "httpx>=0.28.1",
+    "openpyxl>=3.1.5",
+    "pandas>=2.3.3",
+    "rapidfuzz>=3.14.3",
+]
+
+[project.scripts]
+aoc-2025 = "aoc_2025:main"
+
+[build-system]
+requires = ["uv_build>=0.9.12,<0.10.0"]
+build-backend = "uv_build"
