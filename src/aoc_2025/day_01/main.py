@@ -6,6 +6,9 @@ from typing import List
 
 from aoc_2025.utils import setup_logger, simple_txt_parser
 
+setup_logger()
+logger = logging.getLogger(__name__)
+
 ACTION_PATTERN = re.compile(r"^(?P<dir>[RL])(?P<amt>\d+)$", re.IGNORECASE)
 
 
@@ -43,7 +46,7 @@ class Safe:
     new_position = (self.current_position + rotation_delta) % 100
     if new_position == 0:
       self.zeros_at_end += 1
-    logging.debug(
+    logger.debug(
       f"{action} | {self.current_position} {rotation_delta} -> {new_position} | "
       f"during: {during_crossings}, total during: {self.zeros_during}"
     )
@@ -55,13 +58,12 @@ class Safe:
 
 
 def main(filename: str = "example.txt") -> None:
-  setup_logger()
   lines = simple_txt_parser(Path(__file__).parent / filename)
   safe = Safe()
   safe.apply_all_rotations(lines)
-  logging.info(safe)
-  logging.info(f"P1: {safe.zeros_at_end}")
-  logging.info(f"P2: {safe.zeros_at_end + safe.zeros_during}")
+  logger.info(safe)
+  logger.info(f"P1: {safe.zeros_at_end}")
+  logger.info(f"P2: {safe.zeros_at_end + safe.zeros_during}")
 
 
 if __name__ == "__main__":
