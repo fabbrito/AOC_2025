@@ -1,5 +1,5 @@
 from pathlib import Path
-from typing import Callable, TypeVar
+from typing import Callable, TypeVar, overload
 
 T = TypeVar("T")
 
@@ -19,6 +19,10 @@ def separator_parser(text: str, separator: str = ",") -> list[str]:
   return [item.strip() for item in text.split(separator) if item.strip()]
 
 
+@overload
+def simple_txt_parser(file_path: Path, parser: Callable[[str], T]) -> list[T]: ...
+@overload
+def simple_txt_parser(file_path: Path, parser: None = None) -> list[str]: ...
 def simple_txt_parser(file_path: Path, parser: Callable[[str], T] | None = None) -> list[T] | list[str]:
   """
   Parse a text file into a list of lines, optionally applying a parser function to each line.

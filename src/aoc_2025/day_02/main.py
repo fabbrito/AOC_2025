@@ -1,11 +1,9 @@
-import logging
 import math
 from pathlib import Path
 
-from aoc_2025.utils import setup_logger, simple_txt_parser
+from aoc_2025.utils import get_logger, simple_txt_parser
 
-setup_logger(logging.INFO)
-logger = logging.getLogger(__name__)
+logger = get_logger(__name__)
 
 
 def p1(data: str) -> int:

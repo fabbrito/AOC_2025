@@ -1,13 +1,11 @@
-import logging
 import re
 from dataclasses import dataclass
 from pathlib import Path
 from typing import List
 
-from aoc_2025.utils import setup_logger, simple_txt_parser
+from aoc_2025.utils import get_logger, simple_txt_parser
 
-setup_logger()
-logger = logging.getLogger(__name__)
+logger = get_logger(__name__)
 
 ACTION_PATTERN = re.compile(r"^(?P<dir>[RL])(?P<amt>\d+)$", re.IGNORECASE)
 
@@ -61,7 +59,7 @@ def main(filename: str = "example.txt") -> None:
   lines = simple_txt_parser(Path(__file__).parent / filename)
   safe = Safe()
   safe.apply_all_rotations(lines)
-  logger.info(safe)
+  logger.info(f"Current Safe Status: {safe!r}")
   logger.info(f"P1: {safe.zeros_at_end}")
   logger.info(f"P2: {safe.zeros_at_end + safe.zeros_during}")
 

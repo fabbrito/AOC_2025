@@ -1,10 +1,4 @@
-import logging
-
 from .parse_txt import separator_parser, simple_txt_parser
+from .structlog import get_logger
 
-
-def setup_logger(level=logging.INFO, format="%(levelname)s: %(message)s"):
-  logging.basicConfig(level=level, format=format)
-
-
-__all__ = ["simple_txt_parser", "setup_logger", "separator_parser"]
+__all__ = ["simple_txt_parser", "get_logger", "separator_parser"]
