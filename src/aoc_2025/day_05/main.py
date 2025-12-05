@@ -1,8 +1,7 @@
 from __future__ import annotations
 
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from pathlib import Path
-from typing import TypedDict
 
 from aoc_2025.utils import get_logger, simple_txt_parser
 
@@ -15,6 +14,7 @@ type Range = tuple[int, int]
 @dataclass
 class KMS:
   """Represents the Key Management System with fresh ranges and inventory items."""
+
   fresh_ranges: list[Range]
   inventory: list[int]
 
