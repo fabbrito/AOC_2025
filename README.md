@@ -12,14 +12,16 @@ Solutions for Advent of Code 2025 in Python.
 
 ## Running
 
+This project uses the `uv` package manager.
+
 To run a day's solution:
 
 ```bash
-cd src/aoc_2025/day_XX
-python main.py
+uv run python src/aoc_2025/day_XX/main.py
 ```
 
 ## Requirements
 
-- Python 3.8+
+- Python 3.14+
+- [uv](https://github.com/astral-sh/uv) package manager
 - Dependencies listed in `pyproject.toml`
