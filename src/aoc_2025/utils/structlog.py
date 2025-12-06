@@ -57,4 +57,4 @@ def get_logger(name: str) -> structlog.typing.FilteringBoundLogger:
 
 
 # Initialize logging on import
-setup_logging()
+setup_logging(logging.INFO)

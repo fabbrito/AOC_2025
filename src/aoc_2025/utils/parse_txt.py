@@ -41,6 +41,6 @@ def simple_txt_parser(file_path: Path, parser: Callable[[str], T] | None = None)
     raise FileNotFoundError(f"The file {file_path} does not exist.")
 
   with file_path.open("r", encoding="utf-8") as file:
-    lines = [line.strip() for line in file]
+    lines = [line.rstrip("\n") for line in file.readlines()]
 
   return [parser(line) for line in lines] if parser is not None else lines
