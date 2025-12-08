@@ -8,8 +8,6 @@ from aoc_2025.utils import get_logger, simple_txt_parser
 
 logger = get_logger(__name__)
 
-"""Light utility for computing split paths on a simple grid map."""
-
 DIRECTIONS = {"N": (-1, 0), "E": (0, 1), "S": (1, 0), "W": (0, -1)}
 
 type Coords = tuple[int, int]
