@@ -68,7 +68,6 @@ if __name__ == "__main__":
   filename: str = "input.txt"
   file_path = Path(__file__).parent / filename
   data = simple_txt_parser(file_path)
-  # Transpose the data matrix
 
   logger.info(f"Part 1: {part_1(data)}")
   logger.info(f"Part 2: {part_2(data)}")
