@@ -88,5 +88,5 @@ if __name__ == "__main__":
   data = simple_txt_parser(file_path)
 
   logger.info("Starting Day 08 Solutions")
-  logger.info(f"Part 1: {part_1(data, max_iterations=1000)}")
-  logger.info(f"Part 2: {part_2(data)}")
+  logger.info(f"Part 1: {part_1(data, max_iterations=1000)}") # 62186
+  logger.info(f"Part 2: {part_2(data)}") # 8420405530
