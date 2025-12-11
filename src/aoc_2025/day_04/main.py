@@ -28,7 +28,6 @@ class BoolGrid:
     cells = [[char == element for char in line.strip()] for line in data]
     return cls(cells)
 
-
   def build_prefix_sum(self) -> None:
     """Build 2D prefix sum array for efficient range queries."""
     self.prefix = [[0] * (self.width + 1) for _ in range(self.height + 1)]
