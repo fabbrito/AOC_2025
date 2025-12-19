@@ -4,7 +4,7 @@ from pathlib import Path
 
 import networkx as nx
 
-from aoc_2025.utils import get_logger, simple_txt_parser
+from aoc.utils import get_logger, simple_txt_parser
 
 logger = get_logger(__name__)
 

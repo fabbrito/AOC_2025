@@ -1,25 +1,23 @@
 [project]
-name = "aoc-2025"
+name = "aoc"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
-authors = [
-    { name = "Fabrício", email = "fab.brito94@gmail.com" }
-]
+authors = [{ name = "Fabrício", email = "fab.brito94@gmail.com" }]
 requires-python = ">=3.14"
 dependencies = [
-    "colorama>=0.4.6",
-    "httpx>=0.28.1",
-    "networkx[default]>=3.6",
-    "openpyxl>=3.1.5",
-    "pandas>=2.3.3",
-    "pulp>=3.3.0",
-    "rapidfuzz>=3.14.3",
-    "structlog>=25.5.0",
+  "colorama>=0.4.6",
+  "httpx>=0.28.1",
+  "networkx[default]>=3.6",
+  "openpyxl>=3.1.5",
+  "pandas>=2.3.3",
+  "pulp>=3.3.0",
+  "rapidfuzz>=3.14.3",
+  "structlog>=25.5.0",
 ]
 
 [project.scripts]
-aoc-2025 = "aoc_2025:main"
+aoc-2025 = "aoc.aoc_2025:main"
 
 [build-system]
 requires = ["uv_build>=0.9.12,<0.10.0"]

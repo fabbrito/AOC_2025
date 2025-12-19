@@ -1,6 +1,7 @@
 line-length = 120
 indent-width = 2
 extend-include = ["*.ipynb"]
+src = ["src"]
 
 [lint]
 select = ["E", "F", "B", "I"]
